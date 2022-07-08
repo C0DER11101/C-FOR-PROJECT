@@ -1,0 +1,5 @@
+If we have a global variable and a local variable with the same name as that of the global variable, then the local variable will
+be preferred most and global variable will not be used in the function that has a local variable with the same name as that of the
+global variable......
+
+And that's what happens in the program '1.c'
