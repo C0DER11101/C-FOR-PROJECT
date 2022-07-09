@@ -1,0 +1,12 @@
+Explanation for 3.c
+
+
+These are called parameterized macros.....
+
+#define SUM(x, y) ((x)+(y)) is called parameterized macro!!!
+
+
+when you call SUM(x, y) in the main() function, then the compiler replaces SUM(x, y) with its definition i.e. ((x)+(y)) and displays the output!!!!
+
+
+AS SIMPLE AS THAT!!!
