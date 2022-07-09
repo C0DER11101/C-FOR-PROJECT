@@ -8,5 +8,30 @@ These are called parameterized macros.....
 
 when you call SUM(x, y) in the main() function, then the compiler replaces SUM(x, y) with its definition i.e. ((x)+(y)) and displays the output!!!!
 
+So what's up with those brackets around x and y, well those brackets are necessary!!!
+WHY?!
+Reason:
+
+Suppose I define a parameterized macro like this:
+
+#define MULT(x, y) (x*y)
+
+and I call this function in the main() function like this:
+
+int a=10, b=30;
+printf("%d\n", MULT(a+10, b+20));
+
+then the compiler will replace MULT(a+10, b+20) with its expansion i.e. (a+10*b+20). Now since there was no brackets around x and y in MULT() like this ((x)*(y))
+so the answer will be different.
+
+The answer was supposed to be 1000 but the answer will be 330. How?
+
+the expansion a+10*b+20 will evaluate as: first 10 will multiplied with b which 30 and will result into 300 and then 10 and 20 will added to 300 resulting into a wrong
+answer 330......
+
+But had there been brackets around x and y then the expression would have evaluated as follows:
+
+((a+10)*(b+20)) and result would have been 1000!!!!
+So that's the importance of brackets around x and y!!!!
 
 AS SIMPLE AS THAT!!!
