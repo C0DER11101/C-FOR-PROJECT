@@ -1,0 +1,45 @@
+Explanation of 5.c
+
+
+NESTED MACROS!!!
+
+In the file 5.c, we have applied the concept of nested macros....
+
+#define ISLOWER(c) c>=97 && c<=122
+#define TOUPPER(c) ISLOWER(c)==1? c-32:c
+
+...code......
+
+Here ISLOWER(c) is a macro, to be precise it is a parameterized macro.....
+
+Now the boolean c>=97 && c<=122 returns true if the character c has an ascii value between 97 and 122(both inclusive).
+So, the parameterized macro TOUPPER(c) checks this using the ternary operator that if ISLOWER(c) yields 1(i.e true, that means c is a lowercase
+character, then its ascii value will be decremented by 32, which will give the ascii value of the corresponding uppercase letter's ascii value.
+
+So in the main() function we will call TOUPPER(c) because if we call ISLOWER(c) then it will only yield 0 or 1, it won't convert that letter into
+an uppercase letter!!
+
+So basically the code for TOUPPER(c) will be put in place of its call in the main() function when it is called in the main() function,
+
+so again ISLOWER(c) will be replaced with its code and the execution will go on as expected....
+
+HERE'S HOW IT GOES:
+
+main()
+{
+	// code
+	char c;
+
+	// take input for c
+	.......
+	......
+	TOUPPER(c); // the compiler will replace it by ISLOWER(c)==1?c-32:c;
+	and ISLOWER(c) will be replaced by c>=97 && c<=122
+	return 0;
+
+}
+
+
+So basically the entire call of TOUPPER(c) will be this:
+
+			c>=97 && c<=122 == 1? c-32:c;
