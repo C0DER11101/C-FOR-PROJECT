@@ -1,0 +1,52 @@
+Explanation of 10.c, 10pt1.c, 10pt2.c and 10pt3.c
+
+10.c
+
+This program is a simple implementation of macros, notice that there is no semicolon after the print() statement but I have provied the semicolon after
+the macro call in the main function.
+
+This macro show(a); is substituted by its expansion as
+
+printf("var=%d\n", a);
+
+IT'S SIMPLE   :)
+__________________________________________________________________________________________________________________________________________________
+
+10pt1.c
+
+This program is just an exact replica of 10.c but here the macro has a semi colon after it.
+
+So I donot have to put the semicolon after show(a) in the main().
+The macro call show(a) in the main() is replaced by its expansion as
+
+printf("\nvar=%d\n", a);
+__________________________________________________________________________________________________________________________________________________
+
+10pt2.c
+
+Here, we have used the stringizing operator, its name is self-explanatory!!
+
+Stringize means to turn something to a string.......
+
+#define show(var) printf(#var"=%d\n", var)
+
+
+When show() is called in the main() function
+
+show(a);
+
+then it is replaced by its expansion as
+
+printf("a=%d\n", a);
+
+So whatever value is sent as parameter to show() it is stringized into a string for the #var part and its value is used for the var part...
+
+
+show(a);
+
+a was stringized into "a" for #var part and its value was used for the var part of the printf() statement....
+__________________________________________________________________________________________________________________________________________________
+
+10pt3.c
+
+Same program here(same as 10pt2.c)!!
