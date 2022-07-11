@@ -18,6 +18,7 @@ int main(void)
 	int p, q;
 	float a, b;
 
+
 	printf("enter value of p and q: ");
 	scanf("%d-%d", &p, &q);
 
