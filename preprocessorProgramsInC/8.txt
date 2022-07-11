@@ -1,0 +1,7 @@
+Explanation of 8.c
+
+This is program is corrected version of 7.c!!!
+
+Everything is same as 7.c
+
+So there isn't any need to explain it!!!!
