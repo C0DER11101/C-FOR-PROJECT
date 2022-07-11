@@ -1,0 +1,33 @@
+Explanation of 7.c
+------------------
+
+The explanation of MAX(fname, dtype) is same as in 6.c
+
+What's new here is the display() function calling maxint() first defining. You will know what I mean as we move on......
+
+In 6.c we defined maxint() outside of the main() function, so it was global to every function!!!
+
+But here we have maxint() local to only main() function by calling it within it.
+
+int main()
+{
+	...code....
+	MAX(maxint, int);
+
+	...code....
+}
+
+
+Here, as we know MAX(maxint, int); inside the main() is replaced by its definition
+
+int maxint(int x, int y)
+{
+	return x>y?x:y;
+}
+
+Now, this definition is local only to the main() function and thus no outside function can call it....if they do want to call it then then also will have
+to call MAX(maxint, int); within them!!!
+
+But display() doesnot call MAX(maxint, int); so an error as "undefined reference to maxint" appears when compiling the program.
+
+But if display() had called MAX(maxint, int); then would not be any errors and the program would execute successfully!!!!
