@@ -1,0 +1,85 @@
+CONCEPT OF HEADER FILES!!!!
+
+
+Now, this is my favourite part about C preprocessors!!!
+
+Simple basics:
+
+#include is a pre-processor directive pretty much like #define that basically includes other files....
+
+like in 12.c we have included 12.h
+
+Now, when you write the file name within the angle brackets <> then the included file is searched in the standard include directory.
+But when you write the filename within double quotes "" (e.g. #include "12.h") then the included file is searched in the current directory first, if it
+is not found in the current directory then it is searched in the standard include directory!!
+
+Now, we have defined some macros and some functions in the header file 12.h and we have included that header file in 12.c, so in simple words
+
+#include "12.h" is replaced by its expansion which is the file itself i.e the contents of 12.h are put into 12.c as soon as 12.h is included in the file
+12.c
+
+Same thing happens when we write #include<stdio.h>
+
+this statement is replaced by the contents of stdio.h and put into the file into which this header file is included!!!
+
+In simple words:
+
+if this was the expansion of 12.h
+
+void hello()
+{
+	printf("hello world");
+}
+
+int sum(int x, int y)
+{
+	return (x+y);
+}
+
+
+then including 12.h using #include "12.h" in file, say, 12.c will do the following:
+
+say, 12.c looked like this:
+
+#include<stdio.h>
+#include "12.h"
+
+int main(void)
+{
+	hello();
+	int result;
+
+	result=sum(10, 12);
+
+	.....code....
+
+}
+
+#include "12.h" will be replaced by its expansion(or its contents) and 12.c would look like this:
+
+
+12.c
+
+...definitions of functions inside stdio.h are written in here.....
+
+void hello()
+{
+	printf("hello world");
+}
+
+int sum(int x, int y)
+{
+	return (x+y);
+}
+
+
+int main(void)
+{
+	hello();
+	int result;
+
+	result=sum(10, 12);
+
+	.....code....
+
+}
