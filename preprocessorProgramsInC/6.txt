@@ -1,0 +1,80 @@
+Explanation of program 6.c
+
+
+GENERIC FUNCTIONS
+
+
+Basic:
+
+First of all the backslash denotes continuation of a statement of a preprocessor!!!
+
+Example:
+
+printf("Hello\
+world!!");
+
+this just means that the printf() statement has not ended yet!!! It's continuing in the next line!!!
+
+#define MAX(fname, dtype)\
+	dtype fname(dtype x, dtype y)\
+	{\
+		return x>y?x:y; \
+	}
+
+MAX(maxint, int);
+MAX(maxfloat, float);
+
+
+int main(void)
+{
+	....................
+		code here
+	....................
+
+	return 0;
+}
+
+
+<NOTE>
+	MAX(maxint, int); and MAX(maxfloat, float); can also be called withing the main() function!!!!
+</NOTE>
+
+Now, when the compiler encounters MAX(maxint, int); it basically expands it i.e. it replaces it with its definition as
+
+int maxint(int x, int y)
+{
+	return x>y?x:y;
+}
+
+Note that this is the definition of MAX(maxint, int);
+
+It's simple:
+
+#define MAX(fname, dtype) \
+	dtype fname(dtype x, dtype y)\
+	{\
+		return x>y?x:y;\
+	}
+
+basically define MAX(fname, dtype) as 
+dtype fname(dtype x, dtype y)
+{
+	return x>y?x:y;
+}
+
+
+So when MAX(maxint, int); or MAX(maxint, int) will be encountered then it will be replaced by the above definition i.e.
+
+int maxint(int x, int y)
+{
+	return x>y?x:y;
+}
+
+int is the dtype here and maxint is the fname!!!
+
+So the semicolon after MAX(maxint, int) is optional i.e, you can write
+MAX(maxint, int)
+
+OR
+
+MAX(maxint, int);
