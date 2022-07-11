@@ -1,0 +1,30 @@
+Explanation of 9.c, 9pt2.c, 9pt3.c and 9pt4.c
+
+
+In 9.c
+
+we have called maxint() locally by giving the macro MAX(maxint, int) inside the main() function(the rest is just like 8.c)
+
+#undef MAX basically undefines MAX but it still doesnot change the error that is "undefined reference to maxint" because display() doesnot
+call MAX(maxint, int) within itself!!! But it has definitely undefined MAX.
+
+In 9pt2.c
+
+We have first undefined MAX by writing
+
+#undef MAX
+
+and called MAX(maxint, int) inside display(), now this will throw an error because we have undefined MAX and after undefining it we are calling it, but
+it doesnot exist!! So the compiler throws an error!!!!
+
+In 9pt3.c
+
+This program throws no error, because display() function is between #define and #undef and hence MAX(maxint, int) that is called inside display() exists,
+so the program runs smoothly!!!
+
+
+In 9pt4.c
+
+This program also runs smoothly because we already defined maxint() globally by calling MAX(maxint, int) outside the functions in the program, so
+even after undefining MAX a call to maxint() from display() doesnot throw an error because the definition of maxint() exists in the global scope even
+after MAX has been undefined by #undef MAX. In simple words, maxint() has been defined globally......
