@@ -1,0 +1,26 @@
+Explanation of 11.c
+
+Here we have used the token pasting operator!!!
+
+
+This operator basically concatenates two tokens into a single token.
+
+The name of this operator is also self-explanatory!! This operator pastes two tokens into one.
+
+So, program 11.c is just a demonstration of the token pasting operator.
+
+paste(a, b) has been defined as a##b meaning if a is say an identifier m and b is a number 2 then paste(a,b) i.e. a##b will yield m2 i.e.
+
+m##2 will give us m2
+
+
+This is what we have achieved in 11.c
+
+we declare a variable a1 and take user input for a1.
+Notice we have used the macro paste() will taking input as well..
+
+&paste(a, 1) in main() is replaced by its expansion i.e.  a##1 which yields a1 and the whole scanf() statement becomes scanf("%d", &a1);
+
+Similarly while outputing the value of a1 we make use of the paste() macro again and again the same procedure is applied as in the scanf() statement!!!
+
+SIMPLE   :)
